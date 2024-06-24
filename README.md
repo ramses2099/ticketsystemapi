@@ -27,3 +27,13 @@ django-admin startapp api
 
 pip freeze > requirements.txt
 
+## make magriaton
+
+python manage.py makemigrations
+
+## make migrate
+
+python manage.py migrate
+
+## create super user
+python manage createsuperuser
