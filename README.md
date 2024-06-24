@@ -25,3 +25,5 @@ django-admin startapp api
 
 ## get modules require
 
+pip freeze > requirements.txt
+
