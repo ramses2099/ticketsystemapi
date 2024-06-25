@@ -10,7 +10,6 @@ class Departament(models.Model):
     
     def __str__(self) -> str:
         return self.name
-
     
 class Employee(models.Model):
     fullname = models.CharField(max_length=600)
@@ -23,7 +22,6 @@ class Employee(models.Model):
     
     def __str__(self) -> str:
         return self.fullname
-    
 
 class Severity(models.Model):
     name = models.CharField(max_length=600)
@@ -33,8 +31,7 @@ class Severity(models.Model):
     
     def __str__(self) -> str:
         return self.name
-    
-    
+
 class State(models.Model):
     name = models.CharField(max_length=600)
     # One to Many
@@ -43,8 +40,7 @@ class State(models.Model):
     
     def __str__(self) -> str:
         return self.name   
-    
-    
+       
 class Category(models.Model):
     name = models.CharField(max_length=600)
     # One to Many
@@ -64,8 +60,7 @@ class SubCategory(models.Model):
     
     def __str__(self) -> str:
         return self.name
-    
-    
+   
 class Ticket(models.Model):
     
     title = models.CharField(max_length=600)

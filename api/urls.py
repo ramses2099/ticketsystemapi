@@ -16,8 +16,29 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from . import views
 
 urlpatterns = [
-    # path('v1/todos',TodoAV.as_view(), name='todos-list'),
-    # path('v1/todos/<int:pk>', TodoDetailsAV.as_view(), name='todos-list-details'),
+    # Departament
+    path('v1/departaments', views.DepartamentList.as_view(), name='departament-list'),
+    path('v1/departaments/<int:pk>', views.DepartamentDetail.as_view(), name='departament-list-details'),
+    # Employee
+    path('v1/employees', views.EmployeeList.as_view(), name='employee-list'),
+    path('v1/employees/<int:pk>', views.EmployeeDetail.as_view(), name='employee-list-details'),
+    # Severity
+    path('v1/severities', views.SeverityList.as_view(), name='severity-list'),
+    path('v1/severity/<int:pk>', views.SeverityDetail.as_view(), name='severity-list-details'),
+    # State
+    path('v1/states', views.StateList.as_view(), name='state-list'),
+    path('v1/state/<int:pk>', views.StateDetail.as_view(), name='state-list-details'),
+    # Category
+    path('v1/categories', views.CategoryList.as_view(), name='category-list'),
+    path('v1/category/<int:pk>', views.CategoryDetail.as_view(), name='category-list-details'),
+    # SubCategory
+    path('v1/subcategories', views.SubCategoryList.as_view(), name='subcategory-list'),
+    path('v1/subcategory/<int:pk>', views.SubCategoryDetail.as_view(), name='subcategory-list-details'),
+    # Ticket
+    # path('v1/subcategories', views.SubCategoryList.as_view(), name='subcategory-list'),
+    # path('v1/subcategory/<int:pk>', views.SubCategoryDetail.as_view(), name='subcategory-list-details'),
+
 ]
