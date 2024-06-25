@@ -190,4 +190,21 @@ class SubCategoryDetail(mixins.RetrieveModelMixin,
 
     def delete(self, request, *args, **kwargs):
         return self.destroy(request, *args, **kwargs)
+
+# Using generic class-based views    
+# Ticket 
+class TicketList(generics.ListCreateAPIView):
+    queryset = Ticket.objects.all()
+    serializer_class = TicketSerializer
+
+class TicketDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Ticket.objects.all()
+    serializer_class = TicketSerializer
     
+# Category all sub category
+class CategorySubCategoryList(generics.ListCreateAPIView):
+    serializer_class = SubCategorySerializer
+    
+    def get_queryset(self):
+        pk = self.kwargs['pk']
+        return SubCategory.objects.filter(category=pk)

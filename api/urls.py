@@ -34,11 +34,12 @@ urlpatterns = [
     # Category
     path('v1/categories', views.CategoryList.as_view(), name='category-list'),
     path('v1/category/<int:pk>', views.CategoryDetail.as_view(), name='category-list-details'),
+    path('v1/category/<int:pk>/subcategories', views.CategorySubCategoryList.as_view(), name='categorysubcategories-list-details'),
     # SubCategory
     path('v1/subcategories', views.SubCategoryList.as_view(), name='subcategory-list'),
     path('v1/subcategory/<int:pk>', views.SubCategoryDetail.as_view(), name='subcategory-list-details'),
     # Ticket
-    # path('v1/subcategories', views.SubCategoryList.as_view(), name='subcategory-list'),
-    # path('v1/subcategory/<int:pk>', views.SubCategoryDetail.as_view(), name='subcategory-list-details'),
+    path('v1/ticket', views.TicketList.as_view(), name='ticket-list'),
+    path('v1/ticket/<int:pk>', views.TicketDetail.as_view(), name='ticket-list-details'),
 
 ]
