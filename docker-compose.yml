@@ -1,0 +1,29 @@
+version: '3.9'
+
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: dbticketsystem
+      POSTGRES_USER: userticketsystem
+      POSTGRES_PASSWORD: password01
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  web:
+    build: .
+    command: python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/ticketsystemapi
+    ports:
+      - "8085:8000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_NAME=dbticketsystem
+      - DATABASE_USER=userticketsystem
+      - DATABASE_PASSWORD=password01
+      - DATABASE_HOST=db
+
+volumes:
+  postgres_data:
