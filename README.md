@@ -37,3 +37,9 @@ python manage.py migrate
 
 ## create super user
 python manage createsuperuser
+docker compose run web python manage.py createsuperuser
+
+## postgress sql
+pip install psycopg
+pip install psycopg2-binary
+
