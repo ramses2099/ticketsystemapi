@@ -43,3 +43,37 @@ docker compose run web python manage.py createsuperuser
 pip install psycopg
 pip install psycopg2-binary
 
+## auth token
+in setting add:
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication'
+    ]
+}
+
+## install app
+'rest_framework.authtoken'
+
+## migrate
+python manage.py migrate
+
+## test token
+6a36904bb707c2f9f88360e7f974be682ddf588a
+6a36904bb707c2f9f88360e7f974be682ddf588a
+
+## add to all view
+permission_classes = [permissions.IsAuthenticated] # security token
+
+## authentication with jwt using when using angular 
+## Simple JWT
+pip install djangorestframework-simplejwt
+
+## setting 
+REST_FRAMEWORK = {
+    ...
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        ...
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
+    ...
+}

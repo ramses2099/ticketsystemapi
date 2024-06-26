@@ -16,6 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+# from rest_framework.authtoken.views import obtain_auth_token
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+    TokenVerifyView
+)
 from . import views
 
 urlpatterns = [
@@ -41,5 +47,11 @@ urlpatterns = [
     # Ticket
     path('v1/ticket', views.TicketList.as_view(), name='ticket-list'),
     path('v1/ticket/<int:pk>', views.TicketDetail.as_view(), name='ticket-list-details'),
+    # Login and Password
+    # path('v1/login', obtain_auth_token, name='login'),
+    # JWT
+    path('token', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    path('token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
+    path('token/verify', TokenVerifyView.as_view(), name='token_verify'),
 
 ]
