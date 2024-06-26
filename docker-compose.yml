@@ -1,15 +1,7 @@
 version: '3.8'
 
 services:
-  db:
-    image: postgres
-    environment:
-      POSTGRES_DB: dbticketsystem
-      POSTGRES_USER: userticketsystem
-      POSTGRES_PASSWORD: password01
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-
+ 
   web:
     build: .
     command: sh -c "python manage.py makemigrations && python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
@@ -17,13 +9,9 @@ services:
       - .:/ticketsystemapi
     ports:
       - "8080:8000"  # Changed host port to 8080
-    depends_on:
-      - db
     environment:
       - DATABASE_NAME=dbticketsystem
       - DATABASE_USER=userticketsystem
       - DATABASE_PASSWORD=password01
-      - DATABASE_HOST=db
+      - DATABASE_HOST=localhost
 
-volumes:
-  postgres_data:
