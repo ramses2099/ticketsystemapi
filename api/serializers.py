@@ -7,9 +7,9 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = '__all__'
 
-class DepartamentSerializer(serializers.ModelSerializer):
+class DepartmentSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Departament
+        model = Department
         fields = '__all__'
         
 class EmployeeSerializer(serializers.ModelSerializer):

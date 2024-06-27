@@ -26,8 +26,8 @@ from . import views
 
 urlpatterns = [
     # Departament
-    path('v1/departaments', views.DepartamentList.as_view(), name='departament-list'),
-    path('v1/departaments/<int:pk>', views.DepartamentDetail.as_view(), name='departament-list-details'),
+    path('v1/departments', views.DepartmentList.as_view(), name='departament-list'),
+    path('v1/departments/<int:pk>', views.DepartmentDetail.as_view(), name='departament-list-details'),
     # Employee
     path('v1/employees', views.EmployeeList.as_view(), name='employee-list'),
     path('v1/employees/<int:pk>', views.EmployeeDetail.as_view(), name='employee-list-details'),

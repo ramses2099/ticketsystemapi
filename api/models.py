@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-class Departament(models.Model):
+class Department(models.Model):
     name = models.CharField(max_length=600)
     # One to Many 
     user = models.ForeignKey(User, on_delete=models.PROTECT) 
@@ -16,7 +16,7 @@ class Employee(models.Model):
     email = models.EmailField(max_length=254)
     phonenumber = models.CharField(max_length=50)
     # One to Many
-    departament = models.ForeignKey(Departament, on_delete=models.PROTECT)    
+    department = models.ForeignKey(Department, on_delete=models.PROTECT)    
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     created = models.DateTimeField(auto_now_add=True)
     

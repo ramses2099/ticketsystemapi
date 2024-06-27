@@ -7,12 +7,12 @@ from .serializers import *
 
 # Create your views here.
 # Departaments
-class DepartamentList(mixins.ListModelMixin,
+class DepartmentList(mixins.ListModelMixin,
                   mixins.CreateModelMixin,
                   generics.GenericAPIView):
     
-    queryset = Departament.objects.all()
-    serializer_class = DepartamentSerializer
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer
     permission_classes = [permissions.IsAuthenticated] # security token
 
     def get(self, request, *args, **kwargs):
@@ -26,8 +26,8 @@ class DepartamentDetail(mixins.RetrieveModelMixin,
                     mixins.DestroyModelMixin,
                     generics.GenericAPIView):
     
-    queryset = Departament.objects.all()
-    serializer_class = DepartamentSerializer
+    queryset = Department.objects.all()
+    serializer_class = DepartmentSerializer
     permission_classes = [permissions.IsAuthenticated] # security token
 
     def get(self, request, *args, **kwargs):
