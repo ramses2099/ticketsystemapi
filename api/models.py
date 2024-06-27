@@ -89,7 +89,7 @@ class Ticket(models.Model):
     
     expectedenddate = models.DateTimeField()
     
-    completedate = models.DateTimeField()
+    completedate = models.DateTimeField(null=True)
     
     created = models.DateTimeField(auto_now_add=True)
     
