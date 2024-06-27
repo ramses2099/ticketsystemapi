@@ -2,10 +2,10 @@ from django.contrib import admin
 from .models import *
 
 # Register your models here.
-class DepartamentAdmin(admin.ModelAdmin):
+class DepartmentAdmin(admin.ModelAdmin):
      list_display = ["name",  "user", "created"]
 
-admin.site.register(Departament, DepartamentAdmin)
+admin.site.register(Department, DepartmentAdmin)
 
 class EmployeeAdmin(admin.ModelAdmin):
      list_display = ["fullname",  "user", "created"]
