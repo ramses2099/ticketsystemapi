@@ -72,17 +72,17 @@ class Ticket(models.Model):
     # One to Many
     assignedemployee = models.ForeignKey(Employee, 
                                       on_delete=models.PROTECT,related_name="assignedemployeeid")
-    # One to One relation
-    category = models.OneToOneField(Category, 
+    # One to Many
+    category = models.ForeignKey(Category, 
                                     on_delete= models.PROTECT)
-    # One to One relation
-    subcategory = models.OneToOneField(SubCategory, 
+    # One to Many
+    subcategory = models.ForeignKey(SubCategory, 
                                     on_delete= models.PROTECT)    
-    # One to One relation
-    state = models.OneToOneField(State, 
+    # One to Many
+    state = models.ForeignKey(State, 
                                     on_delete= models.PROTECT)
-    # One to One relation
-    severity = models.OneToOneField(Severity, 
+    # One to Many
+    severity = models.ForeignKey(Severity, 
                                     on_delete= models.PROTECT)
     # One to Many
     user = models.ForeignKey(User, on_delete=models.PROTECT)
