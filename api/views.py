@@ -21,7 +21,7 @@ class DepartmentList(mixins.ListModelMixin,
     def post(self, request, *args, **kwargs):
         return self.create(request, *args, **kwargs)
     
-class DepartamentDetail(mixins.RetrieveModelMixin,
+class DepartmentDetail(mixins.RetrieveModelMixin,
                     mixins.UpdateModelMixin,
                     mixins.DestroyModelMixin,
                     generics.GenericAPIView):
