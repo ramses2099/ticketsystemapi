@@ -152,3 +152,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication'
      ]
 }
+
+# Authenticacion setting super user
+DJANGO_SUPERUSER_PASSWORD='123456'
