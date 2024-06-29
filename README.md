@@ -77,3 +77,12 @@ REST_FRAMEWORK = {
     )
     ...
 }
+
+# Run Django commands
+python manage.py makemigrations
+
+# Run Migrations
+python manage.py migrate
+
+# Create Super user
+python manage.py createsuperuser --username=admin --email=ramses2099@gmail.com

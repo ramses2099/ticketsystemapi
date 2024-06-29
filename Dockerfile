@@ -19,11 +19,3 @@ COPY . /ticketsystemapi/
 # Install any needed packages specified in requirements.txt
 RUN pip install -r requirements.txt
 
-# Run Django commands
-RUN python manage.py makemigrations
-
-# Run Migrations
-RUN python manage.py migrate
-
-# Create Super user
-RUN python manage.py createsuperuser --username=admin --email=ramses2099@gmail.com

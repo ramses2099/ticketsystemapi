@@ -92,6 +92,14 @@ DATABASES = {
         'HOST': os.environ.get('DATABASE_HOST'),
         'PORT': '5432',
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'dbticketsystem',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'S3cret',
+    #     'HOST': '10.0.0.50',
+    #     'PORT': '5432',
+    # }
 }
 
 
