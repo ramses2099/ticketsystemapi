@@ -102,7 +102,7 @@ class Ticket(models.Model):
     description = models.CharField(max_length=600)
     # One to Many
     create_by = models.ForeignKey(Employee, 
-                                      on_delete=models.PROTECT,
+                                      on_delete=models.CASCADE,
                                       related_name="create_by")
     # One to Many
     assigned_to = models.ForeignKey(Employee, 
@@ -111,18 +111,18 @@ class Ticket(models.Model):
                                       related_name="assigned_to")
     # One to Many
     category = models.ForeignKey(Category, 
-                                    on_delete= models.PROTECT)
+                                    on_delete= models.CASCADE)
     # One to Many
     subcategory = models.ForeignKey(SubCategory, 
-                                    on_delete= models.PROTECT)    
+                                    on_delete= models.CASCADE)    
     # One to Many
     state = models.ForeignKey(State, 
-                                    on_delete= models.PROTECT)
+                                    on_delete= models.CASCADE)
     # One to Many
     severity = models.ForeignKey(Severity, 
-                                    on_delete= models.PROTECT)
+                                    on_delete= models.CASCADE)
     # One to Many
-    user = models.ForeignKey(User, on_delete=models.PROTECT)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     expectedenddate = models.DateTimeField()
     
