@@ -86,3 +86,43 @@ python manage.py migrate
 
 # Create Super user
 python manage.py createsuperuser --username=admin --email=ramses2099@gmail.com
+
+# 5. How to convert existing databases to Django models?
+- python manage.py inspectdb
+- python manage.py inspectdb > models.py
+
+# Install documents
+pip install django-rest-swagger
+
+# Update your settings
+INSTALLED_APPS = [
+    # ...
+    'rest_framework_swagger',
+]
+
+# Add swagger to your urls.
+
+from rest_framework_swagger.views import get_swagger_view
+
+schema_view = get_swagger_view(title='Polls API')
+
+# ...
+urlpatterns = [
+    # ...
+    path(r'swagger-docs/', schema_view),
+]
+
+# Install coreapi
+
+pip install coreapi
+
+# Add coreapi urls to your urls.
+
+from rest_framework.documentation import include_docs_urls
+# ...
+
+urlpatterns = [
+    # ...
+    path(r'docs/', include_docs_urls(title='Polls API')),
+]
+

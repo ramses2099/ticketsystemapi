@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
-    # 'rest_framework.authtoken',
+    'rest_framework_swagger',
+     # 'rest_framework.authtoken',
     'rest_framework_simplejwt',
     'api',
 ]
@@ -84,22 +85,22 @@ DATABASES = {
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
     #only for production
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('DATABASE_NAME'),
-        'USER': os.environ.get('DATABASE_USER'),
-        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
-        'HOST': os.environ.get('DATABASE_HOST'),
-        'PORT': '5432',
-    }
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
-    #     'NAME': 'dbticketsystem',
-    #     'USER': 'postgres',
-    #     'PASSWORD': 'S3cret',
-    #     'HOST': '10.0.0.50',
+    #     'NAME': os.environ.get('DATABASE_NAME'),
+    #     'USER': os.environ.get('DATABASE_USER'),
+    #     'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
+    #     'HOST': os.environ.get('DATABASE_HOST'),
     #     'PORT': '5432',
     # }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dbticketsystem',
+        'USER': 'postgres',
+        'PASSWORD': 'S3cret',
+        'HOST': '10.0.0.50',
+        'PORT': '5432',
+    }
 }
 
 
@@ -163,3 +164,6 @@ REST_FRAMEWORK = {
 
 # Authenticacion setting super user
 DJANGO_SUPERUSER_PASSWORD='123456'
+
+# DOC
+REST_FRAMEWORK = { 'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema' }

@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from rest_framework_swagger.views import get_swagger_view
+from rest_framework.documentation import include_docs_urls
 # from rest_framework.authtoken.views import obtain_auth_token
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -53,5 +55,6 @@ urlpatterns = [
     path('token', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
     path('token/verify', TokenVerifyView.as_view(), name='token_verify'),
-
+    # document    
+    path(r'docs', include_docs_urls(title='Ticket Sytem API')),
 ]
