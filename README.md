@@ -100,18 +100,6 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
 ]
 
-# Add swagger to your urls.
-
-from rest_framework_swagger.views import get_swagger_view
-
-schema_view = get_swagger_view(title='Polls API')
-
-# ...
-urlpatterns = [
-    # ...
-    path(r'swagger-docs/', schema_view),
-]
-
 # Install coreapi
 
 pip install coreapi
