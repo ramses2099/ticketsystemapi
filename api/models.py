@@ -76,14 +76,14 @@ class Category(models.Model):
         return self.name
     
 class SubCategory(models.Model):
-    subCategory_id = models.BigAutoField(primary_key=True,
+    subcategory_id = models.BigAutoField(primary_key=True,
                                        auto_created=True,
                                        serialize=False,
-                                       verbose_name="subCategory_id"
+                                       verbose_name="subcategory_id"
                                        )
     name = models.CharField(max_length=600)
     # One to Many
-    category = models.ForeignKey(Category,on_delete=models.PROTECT)
+    category = models.ForeignKey(Category,on_delete=models.CASCADE)
     # One to Many
     user = models.ForeignKey(User, on_delete=models.PROTECT)
     created = models.DateTimeField(auto_now_add=True)
