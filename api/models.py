@@ -103,12 +103,12 @@ class Ticket(models.Model):
     # One to Many
     create_by = models.ForeignKey(Employee, 
                                       on_delete=models.PROTECT,
-                                      verbose_name="create_by")
+                                      related_name="create_by")
     # One to Many
     assigned_to = models.ForeignKey(Employee, 
                                       on_delete=models.SET_NULL,
                                       null=True,
-                                      verbose_name="assigned_to")
+                                      related_name="assigned_to")
     # One to Many
     category = models.ForeignKey(Category, 
                                     on_delete= models.PROTECT)
