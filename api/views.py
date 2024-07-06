@@ -2,6 +2,9 @@ from django.shortcuts import render
 from rest_framework import mixins
 from rest_framework import generics
 from rest_framework import permissions
+from django.contrib.auth import authenticate
+from rest_framework.response import Response
+from rest_framework import status
 from .models import *
 from .serializers import *
 
@@ -224,3 +227,26 @@ class CategorySubCategoryList(generics.ListCreateAPIView):
     def get_queryset(self):
         pk = self.kwargs['pk']
         return SubCategory.objects.filter(category=pk)
+    
+class LoginList(mixins.ListModelMixin,
+                  mixins.CreateModelMixin,
+                  generics.GenericAPIView):
+    
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    permission_classes = [permissions.AllowAny] # security token
+ 
+    def post(self, request, *args, **kwargs):
+   
+        username = request.data.get('username')
+        password = request.data.get('password')
+        # auth
+        auth = authenticate(username=username,password=password)
+                
+        if auth is not None:
+            users = self.queryset.filter(username=username)
+            user_data = [{"id": u.id, "username": u.username, "email": u.email} for u in users]
+            return Response(user_data, status=status.HTTP_200_OK)
+        else:
+            user_data = [{"id": 0, "username": "", "email": "","error": "Invalid Credentials"}] 
+            return Response(user_data, status=status.HTTP_400_BAD_REQUEST)

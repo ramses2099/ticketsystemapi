@@ -50,7 +50,7 @@ urlpatterns = [
     path('v1/ticket', views.TicketList.as_view(), name='ticket-list'),
     path('v1/ticket/<int:pk>', views.TicketDetail.as_view(), name='ticket-list-details'),
     # Login and Password
-    # path('v1/login', obtain_auth_token, name='login'),
+    path('v1/login', views.LoginList.as_view(), name='login'),
     # JWT
     path('token', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('token/refresh', TokenRefreshView.as_view(), name='token_refresh'),
