@@ -236,6 +236,9 @@ class LoginList(mixins.ListModelMixin,
     serializer_class = UserSerializer
     permission_classes = [permissions.AllowAny] # security token
  
+    def get(self, request, *args, **kwargs):
+        return self.list(request, *args, **kwargs)
+    
     def post(self, request, *args, **kwargs):
    
         username = request.data.get('username')
