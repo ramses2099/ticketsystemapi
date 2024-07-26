@@ -17,5 +17,6 @@ WORKDIR /ticketsystemapi
 COPY . /ticketsystemapi/
 
 # Install any needed packages specified in requirements.txt
+RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
