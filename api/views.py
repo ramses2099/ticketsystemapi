@@ -16,7 +16,7 @@ class DepartmentList(mixins.ListModelMixin,
     
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -31,7 +31,7 @@ class DepartmentDetail(mixins.RetrieveModelMixin,
     
     queryset = Department.objects.all()
     serializer_class = DepartmentSerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
@@ -49,7 +49,7 @@ class EmployeeList(mixins.ListModelMixin,
     
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -64,7 +64,7 @@ class EmployeeDetail(mixins.RetrieveModelMixin,
     
     queryset = Employee.objects.all()
     serializer_class = EmployeeSerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
@@ -82,7 +82,7 @@ class SeverityList(mixins.ListModelMixin,
     
     queryset = Severity.objects.all()
     serializer_class = SeveritySerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -97,7 +97,7 @@ class SeverityDetail(mixins.RetrieveModelMixin,
     
     queryset = Severity.objects.all()
     serializer_class = SeveritySerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
@@ -115,7 +115,7 @@ class StateList(mixins.ListModelMixin,
     
     queryset = State.objects.all()
     serializer_class = StateSerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -130,8 +130,7 @@ class StateDetail(mixins.RetrieveModelMixin,
     
     queryset = State.objects.all()
     serializer_class = StateSerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
-
+    
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
 
@@ -148,8 +147,7 @@ class CategoryList(mixins.ListModelMixin,
     
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
-    
+        
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
 
@@ -163,7 +161,7 @@ class CategoryDetail(mixins.RetrieveModelMixin,
     
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
@@ -181,7 +179,7 @@ class SubCategoryList(mixins.ListModelMixin,
     
     queryset = SubCategory.objects.all()
     serializer_class = SubCategorySerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
 
     def get(self, request, *args, **kwargs):
         return self.list(request, *args, **kwargs)
@@ -196,7 +194,7 @@ class SubCategoryDetail(mixins.RetrieveModelMixin,
     
     queryset = SubCategory.objects.all()
     serializer_class = SubCategorySerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
 
     def get(self, request, *args, **kwargs):
         return self.retrieve(request, *args, **kwargs)
@@ -212,17 +210,17 @@ class SubCategoryDetail(mixins.RetrieveModelMixin,
 class TicketList(generics.ListCreateAPIView):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
 
 class TicketDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Ticket.objects.all()
     serializer_class = TicketSerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
     
 # Category all sub category
 class CategorySubCategoryList(generics.ListCreateAPIView):
     serializer_class = SubCategorySerializer
-    permission_classes = [permissions.IsAuthenticated] # security token
+    
     
     def get_queryset(self):
         pk = self.kwargs['pk']
