@@ -180,3 +180,15 @@ SIMPLE_JWT = {
     "SLIDING_TOKEN_OBTAIN_SERIALIZER": "rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer",
     "SLIDING_TOKEN_REFRESH_SERIALIZER": "rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer",
 }
+
+# enter to container
+docker exec -it [name of container] bash
+
+# Run Migrations
+python manage.py migrate
+
+# Create Super user
+python manage.py createsuperuser --username=admin --email=ramses2099@gmail.com
+
+
+# Simple changes
